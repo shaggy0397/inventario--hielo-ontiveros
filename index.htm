@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inventario Hielo Ontiveros</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="dashboard">
+    <h1>INVENTARIO HIELO ONTIVEROS</h1>
+    <h3>powered by DEIMON ENTERPRISE technology</h3>
+
+    <table id="tablaInventario">
+      <tr>
+        <th>Producto</th><th>Inicial</th><th>Ingreso</th><th>Contado</th><th>Vendidos</th><th>Dinero</th>
+      </tr>
+    </table>
+
+    <button onclick="cerrarDia()">Cerrar día</button>
+    <button id="capturaBtn">📸 Guardar captura</button>
+
+    <div id="calculadoraBarras">
+      <h4>🧊 Calculadora de barras</h4>
+      <input type="number" id="barrasInput" placeholder="Cantidad de barras" />
+      <button onclick="convertirBarrasAKilos()">🔄 Convertir a kilos</button>
+    </div>
+  </div>
+
+  <script src="html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

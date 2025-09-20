@@ -1,14 +1,5 @@
-const productos = [
-  "Natural", "Coca de medio", "Joya de medio", "Coca", "Joya", "Dieta", "Mineral",
-  "Mineral 600", "Coca 600", "Joya 600", "Dieta 600", "Coca 450", "Ciel de 600",
-  "Ciel de litro", "Barra", "Star", "B750", "B500", "Agua litro", "Agua medio",
-  "Gym de litro", "Gym de litro y medio", "Pepsi", "Pepsi sabor"
-];
-
-const precios = [
-  300, 336, 336, 288, 288, 288, 350, 230, 230, 230, 230, 190, 120,
-  140, 400, 100, 360, 310, 77, 85, 70, 85, 160, 160
-];
+const productos = ["Hielo - Barra", "Hielo - Bloque"];
+const precios = [400, 400]; // puedes ajustar según tu precio por kg
 
 function generarTabla() {
   const tabla = document.getElementById("tablaInventario");
@@ -50,4 +41,21 @@ document.getElementById("capturaBtn").addEventListener("click", () => {
 
 function cerrarDia() {
   alert("✅ Cierre sintomático guardado. Listo para mañana.");
+}
+
+function convertirBarrasAKilos() {
+  const cantidad = parseFloat(document.getElementById("barrasInput").value) || 0;
+  const kilos = cantidad * 160;
+  const filas = document.querySelectorAll("#tablaInventario tr");
+  for (let i = 1; i < filas.length; i++) {
+    const nombre = filas[i].children[0].textContent.trim();
+    if (nombre === "Hielo - Barra") {
+      const ingresoInput = filas[i].children[2].querySelector("input");
+      const ingresoActual = parseFloat(ingresoInput.value) || 0;
+      ingresoInput.value = ingresoActual + kilos;
+      ingresoInput.dispatchEvent(new Event("change"));
+      break;
+    }
+  }
+  alert(`✅ Se agregaron ${kilos} kg al ingreso de Hielo - Barra`);
 }
