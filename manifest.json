@@ -1,0 +1,9 @@
+nano genesis-drop.sh9{
+  "name": "Inventario Hielo Ontiveros",
+  "short_name": "Hielo Ontiveros",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#00ffff",
+  "icons": []
+}
