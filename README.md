@@ -1,17 +1,12 @@
-# INVENTARIO HIELO ONTIVEROS  
-**powered by DEIMON ENTERPRISE technology**
+████████████████████████████████████████████
+█  INVENTARIO HIELO ONTIVEROS             █
+█  powered by DEIMON ENTERPRISE           █
+█  Dashboard táctil + calculadora de barras █
+████████████████████████████████████████████
 
-Dashboard táctil con memoria sintomática, calculadora de barras y captura visual en PNG.
-
-## Funciones
-- 🧮 Calculadora por tipo físico
-- 📸 Captura de pantalla completa
-- 🔄 Persistencia entre días
-- 🛡️ Validación guardiana
-- 🎨 Branding visual hacker
-
-## Instalación local
-```bash
-git clone https://github.com/shaggy0397/inventario--hielo-ontiveros.git
-cd inventario--hielo-ontiveros
+Instalación local:
+git clone ...
 npx serve .
+
+Instalación como app:
+http://localhost:3000 → Agregar a pantalla de inicio
