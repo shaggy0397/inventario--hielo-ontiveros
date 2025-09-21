@@ -1,22 +1,25 @@
-████████████████████████████████████████████
-█  INVENTARIO HIELO ONTIVEROS             █
-█  powered by DEIMON ENTERPRISE           █
-█  Dashboard táctil + calculadora de barras █
-████████████████████████████████████████████
+# 🧊 INVENTARIO HIELO ONTIVEROS
 
-🧊 Productos: Hielo - Barra, Hielo - Bloque  
-🧮 Calculadora: convierte barras en kilos  
-📸 Captura PNG del dashboard  
-📲 Instalación como app desde navegador  
-🛡️ Validación sintomática con script guardián
+Dashboard táctil repo-ready con memoria sintomática, captura visual y cierre modular.  
+Instalación como app real desde Chrome móvil, sin descargas ni permisos.
 
-Instalación local:
-git clone https://github.com/shaggy0397/inventario--hielo-ontiveros.git
-cd inventario--hielo-ontiveros
-npx serve .
+## 🚀 Características
 
-Instalación como app:
-http://localhost:3000 → Agregar a pantalla de inicio
+- 🧮 Tabla dinámica de productos
+- 📸 Captura PNG completa
+- 🔒 Cierre de día con validación
+- ⚖️ Calculadora de barras
+- 🖼️ Ícono visual personalizado
 
-Validación:
-./validar_inventario.sh
+## 📲 Instalación
+
+1. Abre en Chrome móvil:  
+   `https://shaggy0397.github.io/inventario--hielo-ontiveros/`
+
+2. Presiona “Agregar a pantalla de inicio”  
+3. Se instala como app real con ícono táctil
+
+## 🛠️ Repositorio
+
+```bash
+git clone https://github.com/shaggy0397/inventario--hielo-ontiveros

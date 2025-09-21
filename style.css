@@ -1,16 +1,15 @@
 body {
-  background-color: white;
-  color: black;
+  background-color: #121212;
+  color: white;
   font-family: sans-serif;
   padding: 20px;
 }
 
 #dashboard {
-  background-color: white;
-  color: black;
+  background-color: #1e1e1e;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
 table {
@@ -20,7 +19,7 @@ table {
 }
 
 th, td {
-  border: 1px solid #ccc;
+  border: 1px solid #444;
   padding: 8px;
   text-align: center;
 }
@@ -33,4 +32,12 @@ button {
   color: black;
   font-weight: bold;
   border-radius: 6px;
+}
+
+input[type="number"] {
+  width: 60px;
+  text-align: center;
+  background-color: #2a2a2a;
+  color: white;
+  border: 1px solid #555;
 }

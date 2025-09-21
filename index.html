@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>INVENTARIO HIELO ONTIVEROS</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <h1>INVENTARIO HIELO ONTIVEROS</h1>
   <p>powered by DEIMON ENTERPRISE technology</p>
 
   <div id="dashboard">
-    <!-- Aquí va la tabla dinámica -->
     <table id="tablaInventario">
       <thead>
         <tr>
@@ -24,12 +23,12 @@
           <th>Dinero</th>
         </tr>
       </thead>
-      <tbody></tbody>
     </table>
 
     <div id="ajustesFinales">
-      <label><input type="checkbox" id="desechable"> Desechable</label>
-      <label><input type="checkbox" id="totalDinero"> Total de $</label>
+      <label>Desechable: <input type="number" id="desechable" value="15" /></label>
+      <label>Gastos: <input type="number" id="gastos" value="0" /></label>
+      <label>Fiados: <input type="number" id="fiados" value="0" /></label>
       <p>Total: $<span id="totalFinal">0</span></p>
       <button onclick="calcularTotalFinal()">Calcular total final</button>
       <button onclick="cerrarDia()">Cerrar día</button>
@@ -38,9 +37,8 @@
 
     <div id="calculadoraBarras">
       <h3>Calculadora de barras</h3>
-      <input type="number" id="cantidadDinero" placeholder="Cantidad de $">
-      <button onclick="convertirAKilos()">Convertir a kilos</button>
-      <p>Kilos: <span id="resultadoKilos">0</span></p>
+      <input type="number" id="barrasInput" placeholder="Cantidad de barras" />
+      <button onclick="convertirBarrasAKilos()">Convertir a kilos</button>
     </div>
   </div>
 
