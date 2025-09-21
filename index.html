@@ -2,47 +2,72 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>INVENTARIO HIELO ONTIVEROS</title>
-  <link rel="manifest" href="manifest.json" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inventario Hielo Ontiveros</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js");
+    }
+  </script>
+  <script src="html2canvas.min.js"></script>
 </head>
 <body>
-  <h1>INVENTARIO HIELO ONTIVEROS</h1>
-  <p>powered by DEIMON ENTERPRISE technology</p>
+  <h1 style="text-align: center;">INVENTARIO HIELO ONTIVEROS</h1>
+  <p style="text-align: center; font-style: italic;">powered by <strong>DEIMON ENTERPRISE</strong> technology</p>
 
-  <div id="dashboard">
-    <table id="tablaInventario">
+  <div id="capturable">
+    <table id="inventario">
       <thead>
         <tr>
-          <th>Producto</th>
-          <th>Inicial</th>
-          <th>Ingreso</th>
-          <th>Contado</th>
-          <th>Vendidos</th>
-          <th>Dinero</th>
+          <th>Producto</th><th>Inicial</th><th>Ingreso</th><th>Contado</th><th>Vendidos</th><th>Dinero</th>
         </tr>
       </thead>
+      <tbody></tbody>
+      <tfoot>
+        <tr>
+          <td colspan="5"><strong>Total vendido</strong></td>
+          <td id="totalFinal">$0</td>
+        </tr>
+      </tfoot>
     </table>
 
-    <div id="ajustesFinales">
-      <label>Desechable: <input type="number" id="desechable" value="15" /></label>
-      <label>Gastos: <input type="number" id="gastos" value="0" /></label>
-      <label>Fiados: <input type="number" id="fiados" value="0" /></label>
-      <p>Total: $<span id="totalFinal">0</span></p>
-      <button onclick="calcularTotalFinal()">Calcular total final</button>
-      <button onclick="cerrarDia()">Cerrar día</button>
-      <button id="btnCaptura">Guardar captura</button>
-    </div>
-
-    <div id="calculadoraBarras">
-      <h3>Calculadora de barras</h3>
-      <input type="number" id="barrasInput" placeholder="Cantidad de barras" />
-      <button onclick="convertirBarrasAKilos()">Convertir a kilos</button>
-    </div>
+    <hr />
+    <h3>🧾 Ajustes del día</h3>
+    <table>
+      <tr><td>Desechable</td><td><input type="number" id="desechable" value="0" /></td></tr>
+      <tr><td>Fiados</td><td><input type="number" id="fiados" value="0" /></td></tr>
+      <tr><td>Gasto</td><td><input type="number" id="gastos" value="0" /></td></tr>
+      <tr><td><strong>Total con ajustes</strong></td><td id="totalFinalAjustado">$0</td></tr>
+    </table>
   </div>
 
-  <script src="html2canvas.min.js"></script>
+  <div style="margin-top: 1em;">
+    <button onclick="calcularFinal()" style="background: cyan;">Calcular total final</button>
+    <button onclick="cerrarDia()" style="background: orange;">Cerrar día</button>
+    <button onclick="guardarCaptura()" style="background: cyan;">Guardar captura</button>
+  </div>
+
+  <h3>⚖️ Calculadora de barras</h3>
+<table>
+  <tr><td>Barras completas (160kg):</td><td><input type="number" id="barrasRecibidas" /></td></tr>
+  <tr><td>Bloques de 10kg:</td><td><input type="number" id="bloques10" /></td></tr>
+  <tr><td>Bloques de 20kg:</td><td><input type="number" id="bloques20" /></td></tr>
+  <tr><td>Bloques de 40kg:</td><td><input type="number" id="bloques40" /></td></tr>
+  <tr>
+    <td>📥 Enviar a:</td>
+    <td>
+      <select id="destinoBarra">
+        <option value="inicial">Inicial</option>
+        <option value="nuevos">Ingreso</option>
+        <option value="queda">Contado</option>
+      </select>
+    </td>
+  </tr>
+</table>
+<button onclick="calcularBarras()" style="background: cyan;">Convertir y enviar</button>
+<p><strong>Total:</strong> <span id="totalKilos">0 kg</span></p>
   <script src="script.js"></script>
 </body>
 </html>
