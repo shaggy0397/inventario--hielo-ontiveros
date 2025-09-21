@@ -3,14 +3,20 @@ body {
   color: #0ff;
   font-family: monospace;
   padding: 10px;
+  overflow-y: auto;
+  max-height: 100vh;
 }
-h1, h3 {
-  text-align: center;
+#dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
+  display: block;
+  overflow-x: auto;
 }
 td, th {
   border: 1px solid #0ff;
@@ -31,7 +37,7 @@ button {
   border: none;
   font-weight: bold;
 }
-#calculadoraBarras {
+#calculadoraBarras, #ajustesFinales {
   margin-top: 20px;
   text-align: center;
 }

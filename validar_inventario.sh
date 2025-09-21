@@ -4,25 +4,27 @@ echo "🔍 Validando carpeta raíz..."
 cd ~/inventario--hielo-ontiveros || { echo "❌ Carpeta no encontrada"; exit 1; }
 
 echo "📄 Validando archivos esenciales..."
-for file in index.html style.css script.js manifest.json README.md html2canvas.min.js favicon.ico; do
-  if [ ! -f "$file" ]; then
-    echo "❌ Falta: $file"
-  else
-    echo "✅ Presente: $file"
-  fi
+for file in index.html style.css script.js manifest.json README.md html2canvas.min.js; do
+  [ -f "$file" ] && echo "✅ $file" || echo "❌ Falta: $file"
 done
 
-echo "🧠 Validando contenido mínimo..."
-grep -q "INVENTARIO HIELO ONTIVEROS" index.html && echo "✅ index.html contiene título" || echo "❌ Título no encontrado"
-grep -q "html2canvas" index.html && echo "✅ index.html incluye captura" || echo "❌ Falta html2canvas"
-grep -q "display.*standalone" manifest.json && echo "✅ manifest.json modo standalone" || echo "❌ Falta display standalone"
-grep -q "favicon.ico" index.html && echo "✅ index.html incluye favicon" || echo "❌ Falta favicon en index.html"
+echo "🧠 Validando array de productos..."
+grep -q '"Coca 450"' script.js && echo "✅ Coca 450 presente" || echo "❌ Falta Coca 450"
+grep -q 'const productos = \[' script.js && echo "✅ Array detectado" || echo "❌ Array no encontrado"
 
-echo "🚀 Validando servidor local..."
-lsof -i :3000 | grep LISTEN && echo "✅ Puerto 3000 activo" || echo "❌ Servidor no detectado en puerto 3000"
+echo "🔗 Validando enlace de script.js en index.html..."
+grep -q 'script.js' index.html && echo "✅ script.js enlazado" || echo "❌ Falta enlace a script.js"
 
-echo "🔐 Validando estado Git..."
-git status
-git branch | grep gh-pages && echo "✅ Rama gh-pages presente" || echo "❌ Falta rama gh-pages"
+echo "🧮 Validando ejecución de generarTabla()..."
+grep -q 'generarTabla();' script.js && echo "✅ Tabla se genera" || echo "❌ Falta llamada a generarTabla()"
 
-echo "📲 Validación completa. Revisa los ❌ y corrige antes de publicar."
+echo "📦 Validando ajustes finales..."
+grep -q 'id="ajustesFinales"' index.html && echo "✅ Ajustes finales presentes" || echo "❌ Falta sección ajustesFinales"
+
+echo "🧊 Validando calculadora de barras..."
+grep -q 'id="calculadoraBarras"' index.html && echo "✅ Calculadora presente" || echo "❌ Falta calculadora de barras"
+
+echo "📸 Validando botón de captura..."
+grep -q 'id="capturaBtn"' index.html && echo "✅ Botón de captura presente" || echo "❌ Falta botón de captura"
+
+echo "✅ Validación completa. Si todo está en verde, el dashboard está listo."

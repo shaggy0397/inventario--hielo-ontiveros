@@ -10,6 +10,7 @@ const productos = [
   { nombre: "Coca 600", precio: 230 },
   { nombre: "Joya 600", precio: 230 },
   { nombre: "Dieta 600", precio: 230 },
+  { nombre: "Coca 450", precio: 190 },
   { nombre: "Ciel 600", precio: 120 },
   { nombre: "Ciel de litro", precio: 140 },
   { nombre: "Barra", precio: 400 },
@@ -39,7 +40,6 @@ function generarTabla() {
     tabla.appendChild(fila);
   });
 }
-generarTabla();
 
 function actualizarQueda(index, valorContado) {
   const fila = document.querySelectorAll("#tablaInventario tr")[index + 1];
@@ -98,3 +98,6 @@ function calcularTotalFinal() {
   const total = totalVendidos + desechable - gastos + fiados;
   document.getElementById("totalFinal").textContent = `Total: $${total.toFixed(2)}`;
 }
+
+// ✅ Ejecutar tabla al cargar
+generarTabla();
