@@ -24,7 +24,14 @@
         <th>Producto</th><th>Inicial</th><th>Ingreso</th><th>Contado</th><th>Vendidos</th><th>Dinero</th>
       </tr>
     </table>
-
+<div id="ajustesFinales">
+  <h4>🧾 Ajustes finales</h4>
+  <label>♻️ Desechable: <input type="number" id="desechable" value="0" /></label><br />
+  <label>💸 Gastos: <input type="number" id="gastos" value="0" /></label><br />
+  <label>🔄 Fiados (positivo o negativo): <input type="number" id="fiados" value="0" /></label><br />
+  <button onclick="calcularTotalFinal()">🧮 Calcular total final</button>
+  <h3 id="totalFinal">Total: $0</h3>
+</div>
     <button onclick="cerrarDia()">Cerrar día</button>
     <button id="capturaBtn">📸 Guardar captura</button>
 

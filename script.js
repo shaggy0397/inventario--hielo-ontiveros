@@ -1,12 +1,35 @@
-const productos = ["Hielo - Barra", "Hielo - Bloque"];
-const precios = [400, 400]; // puedes ajustar según tu precio por kg
+const productos = [
+  { nombre: "Natural", precio: 300 },
+  { nombre: "Coca de medio", precio: 336 },
+  { nombre: "Joya de medio", precio: 336 },
+  { nombre: "Coca", precio: 288 },
+  { nombre: "Joya", precio: 288 },
+  { nombre: "Dieta", precio: 288 },
+  { nombre: "Mineral", precio: 350 },
+  { nombre: "Mineral 600", precio: 230 },
+  { nombre: "Coca 600", precio: 230 },
+  { nombre: "Joya 600", precio: 230 },
+  { nombre: "Dieta 600", precio: 230 },
+  { nombre: "Ciel 600", precio: 120 },
+  { nombre: "Ciel de litro", precio: 140 },
+  { nombre: "Barra", precio: 400 },
+  { nombre: "Star", precio: 100 },
+  { nombre: "B750", precio: 360 },
+  { nombre: "B500", precio: 310 },
+  { nombre: "Agua", precio: 77 },
+  { nombre: "agua medio", precio: 85 },
+  { nombre: "gym lto", precio: 70 },
+  { nombre: "gym lto med", precio: 85 },
+  { nombre: "pepsi", precio: 160 },
+  { nombre: "pepsi sabor", precio: 160 }
+];
 
 function generarTabla() {
   const tabla = document.getElementById("tablaInventario");
-  productos.forEach((nombre, i) => {
+  productos.forEach((item, i) => {
     const fila = document.createElement("tr");
     fila.innerHTML = `
-      <td>${nombre}</td>
+      <td>${item.nombre}</td>
       <td><input type="number" placeholder="Inicial" /></td>
       <td><input type="number" placeholder="Ingreso" /></td>
       <td><input type="number" placeholder="Contado" onchange="actualizarQueda(${i}, this.value)" /></td>
@@ -25,7 +48,7 @@ function actualizarQueda(index, valorContado) {
   const total = inicial + ingreso;
   const queda = parseFloat(valorContado) || 0;
   const vendido = total - queda;
-  const precio = precios[index];
+  const precio = productos[index].precio;
   fila.children[4].textContent = vendido;
   fila.children[5].textContent = `$${vendido * precio}`;
 }
@@ -48,8 +71,8 @@ function convertirBarrasAKilos() {
   const kilos = cantidad * 160;
   const filas = document.querySelectorAll("#tablaInventario tr");
   for (let i = 1; i < filas.length; i++) {
-    const nombre = filas[i].children[0].textContent.trim();
-    if (nombre === "Hielo - Barra") {
+    const nombre = filas[i].children[0].textContent.trim().toLowerCase();
+    if (nombre === "barra") {
       const ingresoInput = filas[i].children[2].querySelector("input");
       const ingresoActual = parseFloat(ingresoInput.value) || 0;
       ingresoInput.value = ingresoActual + kilos;
@@ -57,5 +80,21 @@ function convertirBarrasAKilos() {
       break;
     }
   }
-  alert(`✅ Se agregaron ${kilos} kg al ingreso de Hielo - Barra`);
+  alert(`✅ Se agregaron ${kilos} kg al ingreso de Barra`);
+}
+
+function calcularTotalFinal() {
+  let totalVendidos = 0;
+  const filas = document.querySelectorAll("#tablaInventario tr");
+  for (let i = 1; i < filas.length; i++) {
+    const dinero = filas[i].children[5].textContent.replace("$", "") || "0";
+    totalVendidos += parseFloat(dinero);
+  }
+
+  const desechable = parseFloat(document.getElementById("desechable")?.value) || 0;
+  const gastos = parseFloat(document.getElementById("gastos")?.value) || 0;
+  const fiados = parseFloat(document.getElementById("fiados")?.value) || 0;
+
+  const total = totalVendidos + desechable - gastos + fiados;
+  document.getElementById("totalFinal").textContent = `Total: $${total.toFixed(2)}`;
 }
