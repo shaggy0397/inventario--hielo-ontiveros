@@ -1,43 +1,36 @@
 body {
-  background-color: #111;
-  color: #0ff;
-  font-family: monospace;
-  padding: 10px;
-  overflow-y: auto;
-  max-height: 100vh;
+  background-color: white;
+  color: black;
+  font-family: sans-serif;
+  padding: 20px;
 }
+
 #dashboard {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  background-color: white;
+  color: black;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
+
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
-  display: block;
-  overflow-x: auto;
+  margin-bottom: 20px;
 }
-td, th {
-  border: 1px solid #0ff;
-  padding: 5px;
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
   text-align: center;
 }
-input {
-  width: 80px;
-  background-color: #222;
-  color: #0ff;
-  border: 1px solid #0ff;
-}
+
 button {
-  margin: 10px;
+  margin: 5px;
   padding: 10px;
-  background-color: #0ff;
-  color: #000;
+  background-color: #00ffff;
   border: none;
+  color: black;
   font-weight: bold;
-}
-#calculadoraBarras, #ajustesFinales {
-  margin-top: 20px;
-  text-align: center;
+  border-radius: 6px;
 }

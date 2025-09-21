@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inventario Hielo Ontiveros</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.json" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INVENTARIO HIELO ONTIVEROS</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="dashboard">
-    <h1>INVENTARIO HIELO ONTIVEROS</h1>
-    <h3>powered by DEIMON ENTERPRISE technology</h3>
+  <h1>INVENTARIO HIELO ONTIVEROS</h1>
+  <p>powered by DEIMON ENTERPRISE technology</p>
 
+  <div id="dashboard">
+    <!-- Aquí va la tabla dinámica -->
     <table id="tablaInventario">
-      <tr>
-        <th>Producto</th><th>Inicial</th><th>Ingreso</th><th>Contado</th><th>Vendidos</th><th>Dinero</th>
-      </tr>
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Inicial</th>
+          <th>Ingreso</th>
+          <th>Contado</th>
+          <th>Vendidos</th>
+          <th>Dinero</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
     </table>
 
     <div id="ajustesFinales">
-      <h4>🧾 Ajustes finales</h4>
-      <label>♻️ Desechable: <input type="number" id="desechable" value="0" /></label><br />
-      <label>💸 Gastos: <input type="number" id="gastos" value="0" /></label><br />
-      <label>🔄 Fiados: <input type="number" id="fiados" value="0" /></label><br />
-      <button onclick="calcularTotalFinal()">🧮 Calcular total final</button>
-      <h3 id="totalFinal">Total: $0</h3>
+      <label><input type="checkbox" id="desechable"> Desechable</label>
+      <label><input type="checkbox" id="totalDinero"> Total de $</label>
+      <p>Total: $<span id="totalFinal">0</span></p>
+      <button onclick="calcularTotalFinal()">Calcular total final</button>
+      <button onclick="cerrarDia()">Cerrar día</button>
+      <button id="btnCaptura">Guardar captura</button>
     </div>
 
-    <button onclick="cerrarDia()">Cerrar día</button>
-    <button id="capturaBtn">📸 Guardar captura</button>
-
     <div id="calculadoraBarras">
-      <h4>🧊 Calculadora de barras</h4>
-      <input type="number" id="barrasInput" placeholder="Cantidad de barras" />
-      <button onclick="convertirBarrasAKilos()">🔄 Convertir a kilos</button>
+      <h3>Calculadora de barras</h3>
+      <input type="number" id="cantidadDinero" placeholder="Cantidad de $">
+      <button onclick="convertirAKilos()">Convertir a kilos</button>
+      <p>Kilos: <span id="resultadoKilos">0</span></p>
     </div>
   </div>
 
   <script src="html2canvas.min.js"></script>
   <script src="script.js"></script>
-<script>
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js")
-      .then(() => console.log("✅ Service worker registrado"))
-      .catch(err => console.error("❌ Error al registrar SW", err));
-  }
-</script>
 </body>
 </html>
